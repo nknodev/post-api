@@ -9,7 +9,7 @@ const limiter = rateLimit({
     max: 30 // limit each IP to 100 requests per windowMs
 })
 
-app.use(express.static("../public"))
+app.use(express.static("public"))
 app.use(limiter)
 app.use(cors())
 // api key
