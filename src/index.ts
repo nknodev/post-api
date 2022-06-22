@@ -32,7 +32,9 @@ app.get("/random", (req, res) => {
     const key = req.query.apikey
     const result = {}
     result.code = 200
-    const imageList = path.resolve(__dirname, './public');
+    
+    const folder = path.resolve(__dirname, './public');
+    const imageList = fs.readdirSync(folder)
     const randomImage = imageList[Math.floor(Math.random() * imageList.length)]
     result.url = `https://post.nkno.site/${randomImage}`
     result.author = "nknodev"
