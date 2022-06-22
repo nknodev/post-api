@@ -9,7 +9,7 @@ const limiter = rateLimit({
     max: 30 // limit each IP to 100 requests per windowMs
 })
 
-app.use(express.static("public"))
+app.use(express.static("../public"))
 app.use(limiter)
 app.use(cors())
 // api key
@@ -28,7 +28,7 @@ app.get("/random", (req, res) => {
     const key = req.query.apikey
     const result = {}
     result.code = 200
-    const imageList = fs.readdirSync("public")
+    const imageList = fs.readdirSync("../public")
     const randomImage = imageList[Math.floor(Math.random() * imageList.length)]
     result.url = `https://post.nkno.site/${randomImage}`
     result.author = "nknodev"
