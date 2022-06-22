@@ -26,7 +26,7 @@ const apikey = [
     "mr8e2r0hK",
 ]
 app.get("/", (req, res) => {
-    res.send("https://nkno.site")
+    res.send("https://postironia.nkno.site")
 })
 app.get("/random", (req, res) => {
     const key = req.query.apikey
