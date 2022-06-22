@@ -13,7 +13,7 @@ const limiter = rateLimit({
 })
 
 
-app.use('/img', express.static(__dirname + './public'));
+app.use('/img', express.static(__dirname + '/public'));
 app.use(limiter)
 app.use(cors())
 // api key
