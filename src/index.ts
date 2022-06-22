@@ -13,7 +13,7 @@ const limiter = rateLimit({
 })
 
 
-app.use(express.static("public"))
+app.use('/img', express.static(__dirname + './public'));
 app.use(limiter)
 app.use(cors())
 // api key
@@ -36,7 +36,7 @@ app.get("/random", (req, res) => {
     const folder = path.resolve(__dirname, './public');
     const imageList = fs.readdirSync(folder)
     const randomImage = imageList[Math.floor(Math.random() * imageList.length)]
-    result.url = `https://post.nkno.site/${randomImage}`
+    result.url = `https://post.nkno.site/img/${randomImage}`
     result.author = "nknodev"
     res.header("Content-type", "application/json; charset=utf-8")
     if (apikey.includes(key)) {
