@@ -35,7 +35,7 @@ app.get("/random", (req, res) => {
     
     const folder = path.resolve(__dirname, './public');
     const imageList = fs.readdirSync(folder)
-    const randomImage = shuffle(imageList)[0];
+    const randomImage = imageList[Math.floor(Math.random() * imageList.length)]
     result.url = `https://post.nkno.site/img/${randomImage}`
     result.author = "nknodev"
     res.header("Content-type", "application/json; charset=utf-8")
