@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
     res.send("https://postironia.nkno.site")
 })
 app.get("/random", (req, res) => {
-    const key = req.query.apikey
+    //const key = req.query.apikey
     const result = {}
     result.code = 200
     
@@ -39,15 +39,15 @@ app.get("/random", (req, res) => {
     result.url = `https://post.nkno.site/img/${randomImage}`
     result.author = "nknodev"
     res.header("Content-type", "application/json; charset=utf-8")
-    if (apikey.includes(key)) {
-        res.send(JSON.stringify(result, null, 2))
-        console.log(result)
-    } else {
+    //if (apikey.includes(key)) {
+    res.send(JSON.stringify(result, null, 2))
+    console.log(result)
+    /*} else {
         const result = {}
         result.code = 403
         result.message = "Invalid API key"
         res.send(JSON.stringify(result, null, 2))
-    }
+    }*/
 })
 /*
 app.get("/rushia", (req, res) => {
